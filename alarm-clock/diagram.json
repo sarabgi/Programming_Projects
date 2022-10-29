@@ -1,0 +1,97 @@
+{
+  "version": 1,
+  "author": "Uri Shaked",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-7segment",
+      "id": "7segment",
+      "top": -29.04,
+      "left": 330.64,
+      "rotate": 0,
+      "hide": false,
+      "attrs": { "commonPin": "anode", "digits": "4", "colon": "1" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "buzzer1",
+      "top": 190.17,
+      "left": 466.82,
+      "rotate": 90,
+      "hide": false,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "pushbutton1",
+      "top": 110,
+      "left": 300,
+      "rotate": 0,
+      "hide": false,
+      "attrs": { "label": "Hours", "color": "green" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "pushbutton2",
+      "top": 110,
+      "left": 380,
+      "rotate": 0,
+      "hide": false,
+      "attrs": { "label": "Minutes", "color": "green" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "pushbutton3",
+      "top": 110,
+      "left": 460,
+      "rotate": 0,
+      "hide": false,
+      "attrs": { "label": "Alarm" }
+    },
+    {
+      "type": "wokwi-ds1307",
+      "id": "ds1307",
+      "top": 235.82,
+      "left": 283.79,
+      "rotate": 0,
+      "hide": false,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-arduino-uno",
+      "id": "arduino",
+      "top": 0,
+      "left": 0,
+      "rotate": 0,
+      "hide": false,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "7segment:DIG1", "arduino:2", "gold", [ "v-20", "h0" ] ],
+    [ "7segment:DIG2", "arduino:3", "green", [ "v-24", "h0" ] ],
+    [ "7segment:DIG3", "arduino:4", "orange", [ "v-28", "h0" ] ],
+    [ "7segment:DIG4", "arduino:5", "purple", [ "v28", "h-150", "*", "v-16" ] ],
+    [ "7segment:A", "arduino:6", "gray", [ "v-16", "h0" ] ],
+    [ "7segment:B", "arduino:7", "purple", [ "v-36", "h0" ] ],
+    [ "7segment:C", "arduino:8", "blue", ["v20", "h-120", "*", "v-20"] ],
+    [ "7segment:D", "arduino:9", "cyan", [ "v16", "h-94", "*", "v-24" ] ],
+    [ "7segment:E", "arduino:10", "green", ["v12", "h-80", "*", "v-28"] ],
+    [ "7segment:F", "arduino:11", "brown", [ "v-40", "h0" ] ],
+    [ "7segment:G", "arduino:12", "orange", ["v24", "h-134", "*", "v-32"] ],
+    [ "7segment:CLN", "arduino:13", "cyan", [ "v-44", "h0" ] ],
+    [ "7segment:COM", "arduino:5V", "red", [ "v300", "h0" ] ],
+    [ "buzzer1:1", "arduino:GND.2", "black", [] ],
+    [ "buzzer1:2", "arduino:A3", "orange", [] ],
+    [ "pushbutton1:1.l", "arduino:A0", "green", [ "h-4", "v0", "*", "v20" ] ],
+    [ "pushbutton1:2.l", "arduino:GND.2", "black", [ "*", "v34" ] ],
+    [ "pushbutton2:1.l", "arduino:A1", "gray", [ "h-4", "v0", "*", "v24" ] ],
+    [ "pushbutton2:2.l", "arduino:GND.2", "black", [ "*", "v34" ] ],
+    [ "pushbutton3:1.l", "arduino:A2", "purple", [ "h-4", "v0", "*", "v28" ] ],
+    [ "pushbutton3:2.l", "arduino:GND.2", "black", [ "*", "v34" ] ],
+    [ "ds1307:GND", "arduino:GND.2", "black", [] ],
+    [ "ds1307:5V", "arduino:5V", "red", [] ],
+    [ "ds1307:SDA", "arduino:A4", "blue", [] ],
+    [ "ds1307:SCL", "arduino:A5", "gold", [] ]
+  ]
+}
